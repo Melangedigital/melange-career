@@ -143,17 +143,17 @@ app.use(json());
 const upload = multer({ dest: "uploads/" });
 
 app.post("/submit", upload.single("pdf"), (req, res) => {
-  const { fullName, email, number, position, portfolio } = req.body;
+  const { fullName, email, number, position, cCTC, eCTC, portfolio } = req.body;
   const file = req.file;
 
   // Ensure recipient email is defined
-  const recipientEmail =  "sania@melangedigital.in";
+  const recipientEmail =  "rahul@melangedigital.in";
   // Configure the email transport using the default SMTP transport and a GMail account.
   // See https://nodemailer.com/ for more options.
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "rahul@melangedigital.in",
+      user: "sania@melangedigital.in",
       pass: "gljz qhft skrd aqtd",
     },
   });
@@ -163,7 +163,7 @@ app.post("/submit", upload.single("pdf"), (req, res) => {
     from: `"Career Form" <${email}> `,
     to: recipientEmail,
     subject: `New Job Application Request from  ${fullName} `,
-    text: `Name: ${fullName}\nEmail: ${email}\nContact Number: ${number}\nPosition: ${position}\nPortfolio: ${portfolio}`,
+    text: `Name: ${fullName}\nEmail: ${email}\nContact Number: ${number}\nPosition: ${position}\nCurrent CTC: ${cCTC}\nExpected CTC: ${eCTC}\nPortfolio: ${portfolio}`,
     attachments: [
       {
         filename: file.originalname,
