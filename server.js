@@ -147,14 +147,14 @@ app.post("/submit", upload.single("pdf"), (req, res) => {
   const file = req.file;
 
   // Ensure recipient email is defined
-  const recipientEmail =  "rahul@melangedigital.in";
+  const recipientEmail =  "sania@melangedigital.in";
   // Configure the email transport using the default SMTP transport and a GMail account.
   // See https://nodemailer.com/ for more options.
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "sania@melangedigital.in",
-      pass: "gljz qhft skrd aqtd",
+      user: "rahul@melangedigital.in",
+      pass: "oisn xtqt xgya pfmo",
     },
   });
 
